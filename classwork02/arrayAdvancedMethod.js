@@ -2,8 +2,9 @@ let arr01 = [3,4,5,6,7,8];
 
 arr01.forEach((element, index) => {
     let answer02 = element * 2;
-    console.log(answer02)
-    console.log(index)
+    //console.log(answer02)
+    //console.log(index)
+    //console.log()
 })
 
 
@@ -20,6 +21,10 @@ function evenNumber(){
     })
 
 }
+//let getNum = number;
+//console.log(getNum);
+
+
 
 function getfruitlength(array){
         let answer = array.filter(fruit => fruit.length > 5)
