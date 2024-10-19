@@ -77,5 +77,56 @@ booklists.addEventListener('click', (event)=>{
 
 
 
+const bookList = document.querySelector("#book-ul")
+const addButton = document.querySelector("#add-book, button")
+const bookInput = document.querySelector("#book-input")
+
+addButton.addEventListener('click', (event)=>{
+    const bookName = bookInput.value.trim();
+    if(bookName != ""){
+
+        const li = document.createElement("li");
+        const nameSpan = document.createElement("span");
+            // nameSpan.className = "name";
+            // nameSpan.textContent = "bookName";
+
+            nameSpan.className =  bookInput.value.trim();
+            nameSpan.textContent =  bookInput.value.trim();
+            
+
+        const deleteSpan = document.createElement("span");
+            deleteSpan.className = "delete";
+            deleteSpan.textContent = "delete";
+
+        li.appendChild(nameSpan)
+        li.appendChild(deleteSpan);
+        bookList.appendChild(li)
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const booklistadd = document.querySelector("#add-book button")
+// booklistadd.addEventListener('click', (event)=>{
+//     const addButton = event.target.className
+//     if(addButton == "add"){
+//         const litag = event.target.nextSibling;
+//         //const btntag = event.parentNode;
+//         booklistadd.append(litag)
+//     }
+// })
+
+
 
 
