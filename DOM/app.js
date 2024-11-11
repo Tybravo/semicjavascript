@@ -54,7 +54,7 @@ bookTitle.forEach(element =>{
 })
 
 
-/*Get Elemnet By Query Selector All To Add Child Using Parent Id*/
+/*Get Elemnet By Query Selector To Add Child Using Parent Id*/
 const booklist = document.querySelector("#book-list ul")
 console.log(booklist)   
 
@@ -63,7 +63,7 @@ booklist.addEventListener('click', (event)=>{
 })
 
 
-/*Get Elemnet By Query Selector All To Delete Child Using Parent Id*/
+/*Get Elemnet By Query Selector To Delete Child Using Parent Id*/
 const booklists = document.querySelector("#book-list ul")
 console.log(booklists)   
 
@@ -78,11 +78,17 @@ booklists.addEventListener('click', (event)=>{
 
 
 const bookList = document.querySelector("#book-ul")
-const addButton = document.querySelector("#add-book, button")
+const addButton = document.querySelector("button")
 const bookInput = document.querySelector("#book-input")
 
 addButton.addEventListener('click', (event)=>{
     const bookName = bookInput.value.trim();
+    if(bookName == ""){
+        alert("Add a book field cannot be empty");
+        return false;
+    }
+
+
     if(bookName != ""){
 
         const li = document.createElement("li");
@@ -101,10 +107,27 @@ addButton.addEventListener('click', (event)=>{
         li.appendChild(nameSpan)
         li.appendChild(deleteSpan);
         bookList.appendChild(li)
+
+        bookInput.value = "";
+        bookName = "";
     }
 })
 
 
+ // Get Element By Id and And Selector All To Search
+ document.getElementById('search-input').addEventListener('keyup', function (e) {
+    const searchBook = e.target.value.toLowerCase();
+    const books = document.querySelectorAll('#book-list ul li');
+  
+    books.forEach((book) => {
+      const bookName = book.firstElementChild.textContent.toLowerCase();
+      if (bookName.includes(searchBook)) {
+        book.style.display = 'block';
+      } else {
+        book.style.display = 'none';
+     }
+    });
+});
 
 
 
@@ -116,16 +139,6 @@ addButton.addEventListener('click', (event)=>{
 
 
 
-
-// const booklistadd = document.querySelector("#add-book button")
-// booklistadd.addEventListener('click', (event)=>{
-//     const addButton = event.target.className
-//     if(addButton == "add"){
-//         const litag = event.target.nextSibling;
-//         //const btntag = event.parentNode;
-//         booklistadd.append(litag)
-//     }
-// })
 
 
 
